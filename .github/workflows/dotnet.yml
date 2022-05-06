@@ -18,13 +18,13 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --configuration Release
+      run: dotnet build --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-restore --verbosity normal
     - name: Create Release
-      uses: ncipollo/release-action@v1.10.0
+      uses: ncipollo/release-action@v1
       with:
-        tag: "1.0"
+        tag: "1.1"
+        body: New Release
         token: ${{ secrets.GITHUB_TOKEN }}
         artifacts: "./UltimateApp/bin/Release/netcoreapp3.1/UltimateApp" 
-
