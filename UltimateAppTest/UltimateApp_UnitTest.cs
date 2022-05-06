@@ -13,8 +13,11 @@ namespace UltimateApp.Test
         [TestMethod]
         public void AddTest()
         {
+
             int? retVal = Calculator.calculate(2, 3, Operation.Add);
+
             Assert.AreEqual(5, retVal);
+
         }
     }
 }
